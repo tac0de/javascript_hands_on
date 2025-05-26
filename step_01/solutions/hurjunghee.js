@@ -12,11 +12,11 @@ buttons.forEach((button) => {
     clicked = !clicked;
 
     if (clicked) {
-      title.textContent = button.classList.contains("enToggleBtn")
+      title.textContent = button.id.valueOf("enToggleBtn")
         ? "Clicked!"
         : "클릭됨!";
     } else {
-      title.textContent = button.classList.contains("enToggleBtn")
+      title.textContent = button.id.valueOf("enToggleBtn")
         ? "Not clicked yet"
         : "아직 클릭 안 함";
     }
