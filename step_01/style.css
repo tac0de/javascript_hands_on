@@ -4,6 +4,10 @@ body {
   margin-top: 100px;
 }
 
+.bg_color {
+  background-color: yellow;
+}
+
 button {
   padding: 10px 20px;
   font-size: 18px;
