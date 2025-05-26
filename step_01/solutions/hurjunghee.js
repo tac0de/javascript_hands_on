@@ -12,20 +12,17 @@ buttons.forEach((button) => {
     clicked = !clicked;
 
     if (clicked) {
-      title.textContent = button.classList.contains("en")
+      title.textContent = button.classList.contains("enToggleBtn")
         ? "Clicked!"
         : "클릭됨!";
-
-      document.body.style.backgroundColor = "yellow";
     } else {
-      title.textContent = button.classList.contains("en")
+      title.textContent = button.classList.contains("enToggleBtn")
         ? "Not clicked yet"
         : "아직 클릭 안 함";
-
-      document.body.style.backgroundColor = "white";
     }
+    document.body.classList.toggle("bg_color");
     title.classList.toggle("clicked");
     clickCount++;
-    count.innerText = `총 클릭 횟수: ${clickCount}`;
+    count.innerText = clickCount;
   });
 });
