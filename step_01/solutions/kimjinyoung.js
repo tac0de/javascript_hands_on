@@ -1,36 +1,48 @@
 const title = document.getElementById("title");
-const button = document.getElementById("toggleBtn");
-const buttonEn = document.getElementById("toggleBtnEn");
-const count = document.getElementById('count');
+const buttons = document.querySelectorAll("button");
+const count = document.getElementById("count");
 
 let clicked = false;
 let clickCount = 0;
 
-button.addEventListener("click", () => {
-  clicked = !clicked;
+const colors = ["black", "pink", "red"];
+let usedColors = [];
 
-  title.textContent = clicked ? "클릭됨!" : "아직 클릭 안 함";
-  title.classList.toggle("clicked");
-  document.body.style.backgroundColor = clicked ? "pink" : "";
+function getRandomColor() {
+  // 남은 색상 배열 만들기
+  const availableColors = colors.filter(color => !usedColors.includes(color));
 
-  // 클릭됨일 때만 카운트 증가
-  if (clicked) {
-    clickCount++;
-    count.textContent = `총 클릭 횟수: ${clickCount}`;
+  // 모든 색상이 다 사용되었다면 초기화 (선택사항)
+  if (availableColors.length === 0) {
+    usedColors = [];
+    availableColors.push(...colors);
   }
-});
 
-buttonEn.addEventListener("click", () => {
-  clicked = !clicked;
+  // 랜덤 색상 선택
+  const randomIndex = Math.floor(Math.random() * availableColors.length);
+  const selectedColor = availableColors[randomIndex];
 
-  title.textContent = clicked ? "Clicked!" : "Not clicked yet";
-  title.classList.toggle("clicked");
-  document.body.style.backgroundColor = clicked ? "lightblue" : "";
+  // 사용된 색상 기록
+  usedColors.push(selectedColor);
 
-  // 클릭됨일 때만 카운트 증가
-  if (clicked) {
+  return selectedColor;
+}
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    clicked = !clicked;
+
+    if (clicked) {
+      title.textContent = button.id === "enToggleBtn" ? "Clicked!" : "클릭됨!";
+    } else {
+      title.textContent = button.id === "enToggleBtn" ? "Not clicked yet" : "아직 클릭 안 함";
+    }
+
+    // 중복되지 않는 랜덤 배경색 적용
+    document.body.style.backgroundColor = getRandomColor();
+
+    title.classList.toggle("clicked");
     clickCount++;
-    count.textContent = `총 클릭 횟수: ${clickCount}`;
-  }
+    count.innerText = clickCount;
+  });
 });
-
