@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>랜덤 배경색</title>
+  <style>
+    body {
+      transition: background-color 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="changeColor()">색상 바꾸기</button>
+
+  <script>
+    // 예: 몇천 개도 OK (가능 모든 색.)
+    const colorList = Array.from({ length: 1000 }, (_, i) => `hsl(${i * 360 / 1000}, 70%, 60%)`);
+    let colorPool = [...colorList];
+
+    function changeColor() {
+      if (colorPool.length === 0) {
+        colorPool = [...colorList]; // 다시 초기화
+      }
+
+      const randomIndex = Math.floor(Math.random() * colorPool.length);
+      const selectedColor = colorPool.splice(randomIndex, 1)[0];
+
+      document.body.style.backgroundColor = selectedColor;
+    }
+  </script>
+</body>
+</html>
