@@ -15,6 +15,9 @@ body {
   background: #eee;
   border: none;
   cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 .answer {
@@ -26,4 +29,7 @@ body {
 
 .answer.active {
   display: block;
+}
+
+.icon {
 }
