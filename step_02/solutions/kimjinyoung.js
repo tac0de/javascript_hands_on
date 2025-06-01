@@ -1,7 +1,6 @@
 const tabs = document.querySelectorAll(".tab");
 const contents = document.querySelectorAll(".content");
 let currentIndex = 0;
-let autoRotate = setInterval(autoTab, 3000);
 
 function showTab(index) {
   tabs.forEach((tab, i) => {
@@ -12,11 +11,14 @@ function showTab(index) {
   currentIndex = index;
 }
 
+// 자동 순환
+let autoRotate = setInterval(autoTab, 3000);
+
 tabs.forEach((tab, index) => {
   tab.addEventListener("click", () => showTab(index));
   
-  clearInterval(autoRotate);
-  autoRotate = setInterval(autoTab, 3000);
+  clearInterval(autoRotate); // 자동 순환 멈춤
+  autoRotate = setInterval(autoTab, 3000); // 다시 시작
 });
 
 function autoTab() {
