@@ -10,23 +10,36 @@
   </style>
 </head>
 <body>
-  <button onclick="changeColor()">색상 바꾸기</button>
+  <!-- <button onclick="changeColor()">색상 바꾸기</button> -->
+
+
+  <div id="tab" data-tab="1">안녕하세요</div>
 
   <script>
     // 예: 몇천 개도 OK (가능 모든 색.)
-    const colorList = Array.from({ length: 1000 }, (_, i) => `hsl(${i * 360 / 1000}, 70%, 60%)`);
-    let colorPool = [...colorList];
+    // const colorList = Array.from({ length: 1000 }, (_, i) => `hsl(${i * 360 / 1000}, 70%, 60%)`);
+    // let colorPool = [...colorList];
+    // function changeColor() {
+    //   if (colorPool.length === 0) {
+    //     colorPool = [...colorList]; // 다시 초기화
+    //   }
 
-    function changeColor() {
-      if (colorPool.length === 0) {
-        colorPool = [...colorList]; // 다시 초기화
-      }
+    //   const randomIndex = Math.floor(Math.random() * colorPool.length);
+    //   const selectedColor = colorPool.splice(randomIndex, 1)[0];
 
-      const randomIndex = Math.floor(Math.random() * colorPool.length);
-      const selectedColor = colorPool.splice(randomIndex, 1)[0];
+    //   document.body.style.backgroundColor = selectedColor;
+    // }
 
-      document.body.style.backgroundColor = selectedColor;
-    }
+    const tab = document.querySelector('#tab')
+    const urlParams = new URLSearchParams(window.location.search);
+    console.log(window.location.search);
+
+    tab.addEventListener('click', () => {
+      console.log(urlParams);
+    });
+
+    console.log(urlParams.get('#tab'))
+
   </script>
 </body>
 </html>
