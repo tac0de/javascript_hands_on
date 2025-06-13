@@ -1,0 +1,41 @@
+
+/* Design Tokens: Colors, Radius, Shadows, Typography, Spacing */
+
+:root {
+  /* Color Palette */
+  --color-bg-light: #ffffff;
+  --color-bg-dark: #0f0f0f;
+  --color-text-light: #111111;
+  --color-text-dark: #eeeeee;
+
+  --color-accent-light: hsl(240, 100%, 60%);
+  --color-accent-dark: hsl(345, 100%, 65%);
+  --color-accent-mix: color-mix(in srgb, var(--color-accent-light) 60%, white);
+
+  /* Typography */
+  --font-body: 'Segoe UI', sans-serif;
+  --font-size-base: 1rem;
+  --font-size-lg: clamp(1.25rem, 4vw, 1.75rem);
+  --font-size-xl: clamp(1.5rem, 5vw, 2.5rem);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Shadow */
+  --shadow-xs: 0 2px 6px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 20px rgba(255, 255, 255, 0.3);
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+
+  /* Transition */
+  --transition-default: 0.4s ease;
+  --glow-strength: 0.3;
+}
