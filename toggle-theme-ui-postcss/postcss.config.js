@@ -1,14 +1,14 @@
-// postcss.config.js
-module.exports = {
+// postcss.config.js (ESM 방식)
+export default {
   plugins: {
-    'postcss-import': {}, // ✅ 반드시 가장 위!
+    'postcss-import': {},
     'postcss-nested': {},
     'postcss-preset-env': {
       stage: 1,
       features: {
-        'nesting-rules': true
-      }
+        'nesting-rules': true,
+      },
     },
-    'autoprefixer': {}
-  }
-}
+    autoprefixer: {},
+  },
+};
